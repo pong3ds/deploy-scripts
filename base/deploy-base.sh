@@ -175,11 +175,11 @@ function redeploy() {
     done
 }
 
-function test() {
+function runtest() {
     SOURCE_ZIP=$1
     DOCKER_ZIP=$2
     ssh -o StrictHostKeyChecking=no -i $SERVER_PEM $SERVERS "bash -s" < $BASE/runtest.sh $SRC_MASTER_URL $SOURCE_ZIP $SERVER_SOURCE_PATH $DOCKER_ZIP $SERVER_DOCKER_PATH
-    echo "EXIT CODE>>>>>$?"
+    exit $?
 }
 
 function run() {
@@ -207,9 +207,8 @@ function run() {
 
     if [ $CMD = "test" ]
     then
-        test $(basename $SOURCE_ZIP) $(basename $DOCKER_ZIP)
+        runtest $(basename $SOURCE_ZIP) $(basename $DOCKER_ZIP)
     else
-        #remote update
         redeploy $(basename $SOURCE_ZIP) $(basename $DOCKER_ZIP)
     fi
 
