@@ -19,7 +19,6 @@ SRC_MASTER_URL="http://13.229.80.187:8080"
 SERVERS="ubuntu@13.229.124.11"
 SERVER_DOCKER_PATH="/var/dockers/$SITE_NAME"
 SERVER_SOURCE_PATH="/var/www/$SITE_NAME"
-SERVER_PEM="/bitnami/jenkins/1001/pem/laravel-quickstart.pem"
 
 #GITS
 GITREPO_URL="https://$GIT_USER:$GIT_PASS@github.com/pong3ds"
