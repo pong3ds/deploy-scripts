@@ -30,6 +30,7 @@ sudo docker-compose -f $DOCKER_PATH/docker-compose.yml down
 sleep 5
 sudo docker-compose -f $DOCKER_PATH/docker-compose.yml up -d
 sleep 15
+sudo docker-compose -f $DOCKER_PATH/docker-compose.yml exec phpfpm php artisan migrate:refresh --database=mysqltest
 sudo docker-compose -f $DOCKER_PATH/docker-compose.yml exec phpfpm vendor/bin/phpunit
 
 exit $?
