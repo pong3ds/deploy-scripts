@@ -120,7 +120,7 @@ function copyRemote() {
 }
 
 function composerUpdate() {
-    sudo docker run -i --rm -v $SOURCE_DIR/$SOURCE_SUBDIR:/app $COMPOSER_IMAGE update
+    sudo docker run -i --rm -v $SOURCE_DIR/$SOURCE_SUBDIR:/app $COMPOSER_IMAGE install
 }
 
 function getDateNow {
@@ -184,7 +184,7 @@ function run() {
     gitUpdate $SOURCE_DIR $SOURCE_REPO $RELEASE_BRANCH $RELEASE_VERSION
 
     composerUpdate
-    
+
     #sync file to build dir
     rsyncHard $SOURCE_DIR/$SOURCE_SUBDIR $BUILD_DIR
     #override config in build dir
