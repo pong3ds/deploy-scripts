@@ -178,9 +178,8 @@ function redeploy() {
 function test() {
     SOURCE_ZIP=$1
     DOCKER_ZIP=$2
-    local RESULTS
-    RESULTS=$(ssh -o StrictHostKeyChecking=no -i $SERVER_PEM $SERVERS "bash -s" < $BASE/runtest.sh $SRC_MASTER_URL $SOURCE_ZIP $SERVER_SOURCE_PATH $DOCKER_ZIP $SERVER_DOCKER_PATH)
-    echo "XXXXXXX>>>>>$?"
+    ssh -o StrictHostKeyChecking=no -i $SERVER_PEM $SERVERS "bash -s" < $BASE/runtest.sh $SRC_MASTER_URL $SOURCE_ZIP $SERVER_SOURCE_PATH $DOCKER_ZIP $SERVER_DOCKER_PATH
+    echo "EXIT CODE>>>>>$?"
 }
 
 function run() {
