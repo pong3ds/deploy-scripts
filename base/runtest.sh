@@ -26,11 +26,11 @@ sudo mkdir -p $SOURCE_PATH
 sudo tar -xzf $SOURCE_FILE -C $SOURCE_PATH
 sudo chown -R 1001 $SOURCE_PATH
 
-#sudo docker-compose -f $DOCKER_PATH/docker-compose.yml down
-#sleep 5
-#sudo docker-compose -f $DOCKER_PATH/docker-compose.yml up -d
-#sleep 15
-sudo docker-compose -f $DOCKER_PATH/docker-compose.yml exec phpfpm php artisan migrate:refresh --database=mysqltest
-sudo docker-compose -f $DOCKER_PATH/docker-compose.yml exec phpfpm vendor/bin/phpunit
+sudo docker-compose -f $DOCKER_PATH/docker-compose.yml down
+sleep 5
+sudo docker-compose -f $DOCKER_PATH/docker-compose.yml up -d
+sleep 15
+sudo docker exec -i $(docker-compose -f $DOCKER_PATH/docker-compose.yml ps -q phpfpm) php artisan migrate:refresh --database=mysqltest
+sudo docker exec -i $(docker-compose -f $DOCKER_PATH/docker-compose.yml ps -q phpfpm) php vendor/bin/phpunit
 
-exit 0
+exit $?
