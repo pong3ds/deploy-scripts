@@ -26,4 +26,4 @@ sudo mkdir -p $SOURCE_PATH
 sudo tar -xzf $SOURCE_FILE -C $SOURCE_PATH
 sudo chown -R 1001 $SOURCE_PATH
 
-exit 1
+exit 0
