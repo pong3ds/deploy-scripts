@@ -33,4 +33,4 @@ sudo docker-compose -f $DOCKER_PATH/docker-compose.yml up -d
 #sudo docker-compose -f $DOCKER_PATH/docker-compose.yml exec phpfpm php artisan migrate:refresh --database=mysqltest
 #sudo docker-compose -f $DOCKER_PATH/docker-compose.yml exec phpfpm vendor/bin/phpunit
 
-#exit 0
+exit 0
